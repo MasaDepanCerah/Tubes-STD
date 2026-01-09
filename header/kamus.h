@@ -124,10 +124,10 @@ adrEdge createEdge(char id, int cost);
 
 /*
 Procedure buildGraph
-IS: Terdefinisi graph G
-FS: Sebuah graf dibuat
+IS: Terdefinisi graph G dan int level
+FS: Sebuah graf dibuat berdasarkan level kesulitan
 */
-void buildGraph(graph &G);
+void buildGraph(graph &G, int level);
 
 /*
 Function searchVertex

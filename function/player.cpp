@@ -4,15 +4,15 @@
 
 using namespace std;
 
-void startGame(graph &G, adrUser &p)
+void startGame(graph &G, adrUser &p) // Meminta input level dari user dan menginisialisasi player
 {
     int     level;
     bool    valid = false;
     do
     {
-        pilihLevel();
+        pilihLevel(); // Menampilkan pilihan level
         cin >> level;
-        switch (level)
+        switch (level) 
         {
         case 0:
             exitGame();
@@ -30,18 +30,18 @@ void startGame(graph &G, adrUser &p)
             valid = true;
             break;
         default:
-            errorInput();
+            errorInput(); 
         }
     } while (!valid);
-    buildGraph(G);
+    buildGraph(G, level); // Kirim level ke buildGraph
     p->lokasi = G.firstVertex;
 }
-void playerMovement(graph G, adrUser &p)
+void playerMovement(graph G, adrUser &p) // Menangani pergerakan player
 {
     char pergi;
-    running(p);
+    running(p); // Menampilkan opsi gerak user
     cin >> pergi;
-    adrEdge e = searchEdge(p->lokasi, pergi);
+    adrEdge e = searchEdge(p->lokasi, pergi); // Mencari edge sesuai input user
     if (e == nullptr)
     {
         errorInput();
